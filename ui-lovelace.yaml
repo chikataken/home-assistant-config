@@ -1,0 +1,24 @@
+title: Home
+views:
+  - title: Front Door
+    path: front-door
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Lock
+            icon: mdi:lock
+            tap_action:
+              action: call-service
+              service: lock.lock
+              service_data:
+                entity_id: lock.yale_assure_2
+
+          - type: button
+            name: Unlock
+            icon: mdi:lock-open
+            tap_action:
+              action: call-service
+              service: lock.unlock
+              service_data:
+                entity_id: lock.yale_assure_2
