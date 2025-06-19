@@ -1,0 +1,13 @@
+- id: '1750228235196'
+  alias: tv off 11:59
+  description: ''
+  triggers:
+  - trigger: time
+    at: '23:59:00'
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: d6bcf1e95521d797b851f1b6a9d6c18b
+    entity_id: 41d6d9ad5fda46d4d89c6843b816b2aa
+    domain: remote
+  mode: single

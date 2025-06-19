@@ -1,0 +1,93 @@
+2025-06-18 17:25:46.993 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-06-18 17:25:46.994 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration robovac which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-06-18 17:25:47.614 WARNING (MainThread) [aiohttp_fast_zlib] zlib_ng and isal are not available, falling back to zlib, performance will be degraded.
+2025-06-18 17:25:47.639 ERROR (Recorder) [homeassistant.components.recorder.core] The database schema version 50 is newer than 48 which is the maximum database schema version supported by the installed version of Home Assistant Core, either upgrade Home Assistant Core or restore the database from a backup compatible with this version
+2025-06-18 17:25:47.640 ERROR (MainThread) [homeassistant.setup] Setup failed for 'recorder': Integration failed to initialize.
+2025-06-18 17:25:47.741 ERROR (ImportExecutor_0) [homeassistant.components.camera.img_util] Error loading libturbojpeg; Camera snapshot performance will be sub-optimal
+Traceback (most recent call last):
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/homeassistant/components/camera/img_util.py", line 100, in __init__
+    TurboJPEGSingleton.__instance = TurboJPEG()
+                                    ^^^^^^^^^^^
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/turbojpeg.py", line 300, in __init__
+    self.__find_turbojpeg() if lib_path is None else lib_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/turbojpeg.py", line 967, in __find_turbojpeg
+    raise RuntimeError(
+RuntimeError: Unable to locate turbojpeg library automatically. You may specify the turbojpeg library path manually.
+e.g. jpeg = TurboJPEG(lib_path)
+2025-06-18 17:25:47.984 WARNING (MainThread) [homeassistant.helpers.config_validation] The 'default_interface' option near /home/mbdtf-server/.homeassistant/configuration.yaml:6 is deprecated, please remove it from your configuration
+2025-06-18 17:25:48.050 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'history'. Setup failed for dependencies: ['recorder']
+2025-06-18 17:25:48.050 ERROR (MainThread) [homeassistant.setup] Setup failed for 'history': Could not setup dependencies: recorder
+2025-06-18 17:25:48.052 ERROR (MainThread) [homeassistant.config_entries] Error importing platform config_flow from integration backup to set up backup configuration entry: Platform backup.config_flow not found
+2025-06-18 17:25:48.053 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'energy'. Setup failed for dependencies: ['history', 'recorder']
+2025-06-18 17:25:48.053 ERROR (MainThread) [homeassistant.setup] Setup failed for 'energy': Could not setup dependencies: history, recorder
+2025-06-18 17:25:48.053 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'logbook'. Setup failed for dependencies: ['recorder']
+2025-06-18 17:25:48.053 ERROR (MainThread) [homeassistant.setup] Setup failed for 'logbook': Could not setup dependencies: recorder
+2025-06-18 17:25:48.865 ERROR (MainThread) [homeassistant.setup] Unable to set up dependencies of 'default_config'. Setup failed for dependencies: ['energy', 'history', 'logbook']
+2025-06-18 17:25:48.865 ERROR (MainThread) [homeassistant.setup] Setup failed for 'default_config': Could not setup dependencies: energy, history, logbook
+2025-06-18 17:25:53.664 WARNING (MainThread) [homeassistant.bootstrap] Support for the running Python version 3.12.3 is deprecated and will be removed in Home Assistant 2025.2; Please upgrade Python to 3.13
+2025-06-18 17:26:35.801 WARNING (Thread-7 (_do_shutdown)) [homeassistant.util.executor] Thread[SyncWorker_5] is still running at shutdown: File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 92, in _worker
+    work_item.run()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/homeassistant/components/samsungtv/bridge.py", line 311, in _try_connect
+    with Remote(config.copy()):
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote.py", line 9, in __init__
+    self.remote = RemoteLegacy(config)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote_legacy.py", line 22, in __init__
+    self.connection.connect((config["host"], config["port"]))
+2025-06-18 17:26:36.792 WARNING (Thread-7 (_do_shutdown)) [homeassistant.util.executor] Thread[SyncWorker_5] is still running at shutdown: File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 92, in _worker
+    work_item.run()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/homeassistant/components/samsungtv/bridge.py", line 311, in _try_connect
+    with Remote(config.copy()):
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote.py", line 9, in __init__
+    self.remote = RemoteLegacy(config)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote_legacy.py", line 22, in __init__
+    self.connection.connect((config["host"], config["port"]))
+2025-06-18 17:26:38.237 WARNING (MainThread) [homeassistant.components.unifi] Exception on update Session is closed
+2025-06-18 17:26:45.797 WARNING (MainThread) [homeassistant.util.executor] Thread[SyncWorker_5] is still running at shutdown: File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 92, in _worker
+    work_item.run()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/homeassistant/components/samsungtv/bridge.py", line 311, in _try_connect
+    with Remote(config.copy()):
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote.py", line 9, in __init__
+    self.remote = RemoteLegacy(config)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote_legacy.py", line 22, in __init__
+    self.connection.connect((config["host"], config["port"]))
+2025-06-18 17:26:46.788 WARNING (MainThread) [homeassistant.util.executor] Thread[SyncWorker_5] is still running at shutdown: File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 92, in _worker
+    work_item.run()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/homeassistant/components/samsungtv/bridge.py", line 311, in _try_connect
+    with Remote(config.copy()):
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote.py", line 9, in __init__
+    self.remote = RemoteLegacy(config)
+  File "/home/mbdtf-server/ha-venv/lib/python3.12/site-packages/samsungctl/remote_legacy.py", line 22, in __init__
+    self.connection.connect((config["host"], config["port"]))
