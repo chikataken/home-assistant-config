@@ -10,7 +10,3 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene:  !include scenes.yaml
 
-type: entities
-entities:
-  - entity: lock.yale_assure_2
-    name: Front Door Lock
