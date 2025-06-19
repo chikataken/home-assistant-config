@@ -11,30 +11,3 @@
     entity_id: 41d6d9ad5fda46d4d89c6843b816b2aa
     domain: remote
   mode: single
-
-- id: turn_off_hallway_nest_when_upstairs_clients_disconnect
-  alias: Turn off Hallway Nest when upstairs devices leave AP
-  description: >
-    If any of my four tracked devices are either off–network or
-    no longer on the “U6_Pro_Master” UniFi access point, turn off
-    the hallway Nest thermostat.
-  trigger:
-    - platform: state
-      entity_id:
-        - device_tracker.iphone
-        - device_tracker.iphone_2
-  condition:
-    - condition: template
-      value_template: >-
-        {% set upstairs_ap = 'U6_Pro_Master' %}
-        {% for dev in ['device_tracker.iphone','device_tracker.iphone_2'] %}
-          {% if states(dev) != 'home' or state_attr(dev,'access_point') != upstairs_ap %}
-            true
-          {% endif %}
-        {% endfor %}
-        false
-  action:
-    - service: climate.turn_off
-      target:
-        entity_id: climate.hallway
-  mode: single
