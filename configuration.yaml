@@ -1,49 +1,11 @@
-
-# Loads default set of integrations. Do not remove.
 default_config:
 
 zeroconf:
   default_interface: true
 
-# Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
 
 automation: !include automations.yaml
 script: !include scripts.yaml
-scene: !include scenes.yaml
-
-# automations.yaml
-
-- id: turn_off_hallway_nest_when_upstairs_clients_disconnect
-  alias: Turn off Hallway Nest when upstairs devices leave AP
-  description: >
-    If any of my four tracked devices are either off–network or
-    no longer on the “Upstairs_AP” UniFi access point, turn off the
-    hallway Nest thermostat.
-  trigger:
-    # Fire whenever any of the four device trackers changes state
-    - platform: state
-      entity_id:
-        - device_tracker.iphone  # ← replace with your real entity IDs
-        - device_tracker.iphone_2
-  condition:
-    # Only proceed if ANY one of them is not on the specified AP
-    - condition: template
-      value_template: >-
-        {% set upstairs_ap = 'U6_Pro_Master' %}     {# ← replace with your AP’s name #}
-        {% for dev in [
-          'device_tracker.iphone',
-          'device_tracker.iphone_2'
-        ] %}
-          {# if client is not home OR its access_point attr ≠ upstairs_ap #}
-          {% if states(dev) != 'home' or state_attr(dev, 'access_point') != upstairs_ap %}
-            true
-          {% endif %}
-        {% endfor %}
-        false
-  action:
-    - service: climate.turn_off
-      target:
-        entity_id: climate.hallway  # ← your Nest entity ID
-  mode: single
+scene:  !include scenes.yaml
