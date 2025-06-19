@@ -12,7 +12,7 @@ views:
               action: call-service
               service: lock.lock
               service_data:
-                entity_id: lock.yale_assure_2
+                entity_id: lock.yalef
 
           - type: button
             name: Unlock
@@ -21,4 +21,4 @@ views:
               action: call-service
               service: lock.unlock
               service_data:
-                entity_id: lock.yale_assure_2
+                entity_id: lock.yalef
