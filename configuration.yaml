@@ -13,9 +13,10 @@ scene:  !include scenes.yaml
 template:
   - binary_sensor:
       - name: "Andrew iPhone on UniFi"
-        unique_id: andrew_iphone_unifi
+        unique_id: andrew_iphone_online
         device_class: connectivity
-        state: >
-          {{ state_attr('device_tracker.andrew_iphone','connected') }}
-        availability: >
+        state: >-
+          {{ state_attr('device_tracker.andrew_iphone', 'qos_policy_applied') == true }}
+        # Mark unavailable if the tracker itself goes away
+        availability: >-
           {{ not is_state('device_tracker.andrew_iphone','unavailable') }}
