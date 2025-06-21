@@ -12,10 +12,20 @@ scene:  !include scenes.yaml
 
 template:
   - binary_sensor:
-      - name: "rev Andrew iPhone on UniFi"
+      - name: "Andrew iPhone on UniFi"
         unique_id: andrew_iphone_online
         device_class: connectivity
         state: >-
           {{ state_attr('device_tracker.andrew_iphone', 'essid') == 'MBDTF' }}
         availability: >-
           {{ not is_state('device_tracker.andrew_iphone','unavailable') }}
+
+template:         
+  - binary_sensor:    
+      - name: "Mike iPhone on UniFi"
+        unique_id: mike_iphone_online
+        device_class: connectivity
+        state: >-
+          {{ state_attr('device_tracker.mike_iphone', 'essid') == 'MBDTF' }}
+        availability: >-
+          {{ not is_state('device_tracker.mike_iphone', 'unavailable') }}
