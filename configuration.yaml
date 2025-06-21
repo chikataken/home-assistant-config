@@ -12,7 +12,7 @@ scene:  !include scenes.yaml
 
 template:
   - binary_sensor:
-      - name: "Andrew iPhone on UniFi"
+      - name: "andrew phone home"
         unique_id: andrew_iphone_online
         device_class: connectivity
         state: >-
