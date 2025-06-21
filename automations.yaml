@@ -11,3 +11,31 @@
     entity_id: 41d6d9ad5fda46d4d89c6843b816b2aa
     domain: remote
   mode: single
+
+- alias: Lock Yale when everyone leaves
+  description: Lock the Yale whenever both Andrew’s and Mike’s iPhones are offline
+  trigger:
+    # Fires when Andrew’s phone goes OFF
+    - platform: state
+      entity_id: binary_sensor.andrew_iphone_online
+      from: 'on'
+      to: 'off'
+    # Fires when Mike’s phone goes OFF
+    - platform: state
+      entity_id: binary_sensor.mike_iphone_online
+      from: 'on'
+      to: 'off'
+  condition:
+    # Only proceed if Andrew’s phone is currently OFF
+    - condition: state
+      entity_id: binary_sensor.andrew_iphone_online
+      state: 'off'
+    # Only proceed if Mike’s phone is currently OFF
+    - condition: state
+      entity_id: binary_sensor.mike_iphone_online
+      state: 'off'
+  action:
+    - service: lock.lock
+      target:
+        entity_id: lock.yalew
+  mode: single
