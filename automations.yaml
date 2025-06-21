@@ -21,19 +21,19 @@
       from: 'on'
       to: 'off'
     # Fires when Mike’s phone goes OFF
-    - platform: state
-      entity_id: binary_sensor.mike_iphone_online
-      from: 'on'
-      to: 'off'
+  #  - platform: state
+  #    entity_id: binary_sensor.mike_iphone_online
+  #    from: 'on'
+  #    to: 'off'
   condition:
     # Only proceed if Andrew’s phone is currently OFF
     - condition: state
       entity_id: binary_sensor.andrew_iphone_online
       state: 'off'
     # Only proceed if Mike’s phone is currently OFF
-    - condition: state
-      entity_id: binary_sensor.mike_iphone_online
-      state: 'off'
+   # - condition: state
+   #   entity_id: binary_sensor.mike_iphone_online
+   #   state: 'off'
   action:
     - service: lock.lock
       target:
