@@ -1,1 +1,23 @@
-{}
+{
+s1pro_spot_clean:
+  alias: S1 Pro Spot Clean
+  sequence:
+    - service: vacuum.send_command
+      data:
+        command: spotClean
+      target:
+        entity_id: vacuum.your_s1_pro_entity_id
+  mode: single
+
+s1pro_zone_clean:
+  alias: S1 Pro Zone Clean
+  sequence:
+    - service: vacuum.send_command
+      data:
+        command: zoneClean
+      target:
+        entity_id: vacuum.your_s1_pro_entity_id
+  mode: single
+
+
+}
