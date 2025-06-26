@@ -1,4 +1,4 @@
-{
+
 s1pro_spot_clean:
   alias: S1 Pro Spot Clean
   sequence:
@@ -18,6 +18,3 @@ s1pro_zone_clean:
       target:
         entity_id: vacuum.your_s1_pro_entity_id
   mode: single
-
-
-}
